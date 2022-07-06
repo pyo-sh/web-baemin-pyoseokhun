@@ -1,8 +1,13 @@
+include mixins/header
+
 <!DOCTYPE html>
 html
     head
         title="배달의민족"
         block head
         link(rel="stylesheet", href="/stylesheets/style.css")
+        link(rel="stylesheet", href="/stylesheets/header.css")
     body
-        block body
+        main.main
+            +header(page, title)
+            block body
