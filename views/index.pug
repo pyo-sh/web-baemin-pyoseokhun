@@ -1,4 +1,13 @@
 extends layout
 
+block head 
+  link(rel="stylesheet", href="/stylesheets/index.css")
+
 block body
-  p Welcome to baemin login
+  img(src="/images/banner.png").banner
+  a(href="/login")
+    .link_user
+      img(src="images/profile.png").link_user__image
+      span.link_user__name 
+        ="로그인해주세요"
+      img(src="images/right-arrow.png").link_user__arrow
