@@ -6,11 +6,11 @@ block head
 block body
   img(src="/images/banner.png").banner
   a(href="/login")
-    .link_user
-      img(src="images/profile.png").link_user__image
+    .link.link_user
+      img(src="/images/profile.png")
       span.link_user__name 
         ="로그인해주세요"
-      img(src="images/right-arrow.png").link_user__arrow
+      img(src="/images/right-arrow.png")
   ul.link_grid
     +griditem("point.png", "포인트")
     +griditem("coupon.png", "쿠폰함")
@@ -18,11 +18,33 @@ block body
     +griditem("heart.png", "찜")
     +griditem("list.png", "주문내역")
     +griditem("speech-bubble.png", "리뷰관리")
-
+  a(href="/")
+    .link.link_adv
+      img(src="/images/sprout.png")
+      span.link_adv__title
+        ="일회용을 덜 쓰기, 함께해요!"
+      img(src="/images/right-arrow.png")
+  ul.link_menu
+    +menuitem("배민페이 등록", "배민페이로 결제하면 최대 5.5% 배민포인트가 적립됩니다!", true)
+    +menuitem("가족계정 관리", "배민페이로 결제하면 최대 5.5% 배민포인트가 적립됩니다!", true)
+    +menuitem("공지사항")
+    +menuitem("배민커넥트 지원")
 
 mixin griditem(file, label)
   a(href="/")
     li.link_grid__item
-      img(src=`images/${file}`)
+      img(src=`/images/${file}`)
       span 
         =label
+
+mixin menuitem(title, subtitle = "", isNew = false)
+  a(href="/")
+    li.link
+      .link_menu__item
+        div.menu_item__title
+          =title
+          -if (isNew)
+            img(src=`/images/new.png`)
+        span.menu_item__subtitle
+          =subtitle
+      img(src="/images/right-arrow.png")

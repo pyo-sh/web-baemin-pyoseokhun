@@ -13,8 +13,8 @@ body {
 }
 
 .main {
-  min-width: 420px;
-  background-color: red;
+  width: 420px;
+  background-color: #efefef;
 }
 
 a {
