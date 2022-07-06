@@ -11,3 +11,18 @@ block body
       span.link_user__name 
         ="로그인해주세요"
       img(src="images/right-arrow.png").link_user__arrow
+  ul.link_grid
+    +griditem("point.png", "포인트")
+    +griditem("coupon.png", "쿠폰함")
+    +griditem("present.png", "선물함")
+    +griditem("heart.png", "찜")
+    +griditem("list.png", "주문내역")
+    +griditem("speech-bubble.png", "리뷰관리")
+
+
+mixin griditem(file, label)
+  a(href="/")
+    li.link_grid__item
+      img(src=`images/${file}`)
+      span 
+        =label
