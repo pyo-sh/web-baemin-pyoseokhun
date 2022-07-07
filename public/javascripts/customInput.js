@@ -40,8 +40,11 @@ function handleEraseValue($input, $eraseBtn) {
   });
 
   const eraseValue = () => {
+    /* to watch clear */
+    $input.clear = true;
     $input.value = "";
-    $eraseBtn.classList.toggle("hidden", !$input.value);
+    $input.topParent.toggleCheck(false);
+    $eraseBtn.classList.toggle("hidden", true);
   };
   $eraseBtn.addEventListener("click", eraseValue);
   return eraseValue;
