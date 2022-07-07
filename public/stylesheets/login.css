@@ -1,0 +1,100 @@
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-wrapper {
+  padding: 40px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_form {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_form__input {
+  width: 100%;
+  padding: 10px 4px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #ccc;
+}
+.login_form__input::placeholder {
+  color: #ccc;
+}
+.login_form__alarm {
+  width: 100%;
+  height: 18px;
+  padding: 0 4px;
+  margin: 4px 0 16px 0;
+
+  font-size: 14px;
+  color: red;
+}
+.login_form__button {
+  width: 100%;
+  height: 45px;
+  margin: 8px 0;
+  font-size: 16px;
+  color: white;
+  background-color: #2ac1bc;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+}
+
+.login_help {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.login_help > a {
+  height: 18px;
+  margin: 8px 0;
+  padding: 0 16px;
+  line-height: 20px;
+  color: #777777;
+}
+.login_help > a:first-child {
+  border-right: 1px solid #777777;
+}
+
+.login_select {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 8px;
+}
+.login_select__button {
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  border: 1px solid #777777;
+  border-radius: 3px;
+}
+.login_select__button:active {
+  border: 1px solid #444444;
+  box-shadow: 1px 1px #444444;
+}
+.login_select_signup {
+  margin-top: 12px;
+  color: black;
+}
+.login_select_signup > a {
+  margin: 0 4px;
+  color: #2ac1bc;
+}
