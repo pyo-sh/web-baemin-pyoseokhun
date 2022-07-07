@@ -29,4 +29,11 @@ router.get("/signup/phone", function (req, res, next) {
   });
 });
 
+router.get("/signup/others", function (req, res, next) {
+  res.render("signup/others", {
+    page: "others",
+    title: "회원가입",
+  });
+});
+
 module.exports = router;

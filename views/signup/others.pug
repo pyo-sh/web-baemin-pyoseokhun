@@ -1,0 +1,17 @@
+extends ../layout
+include ../mixins/customInput
+
+block head 
+  link(rel="stylesheet", href="/stylesheets/pages/signup/others.css")
+  link(rel="stylesheet", href="/stylesheets/mixins/customInput.css")
+block body
+  .others_wrapper
+    .others_email
+      +customInput("정확한 이메일 양식에 맞게 작성해주세요.", "이메일", true, true)(id="phone_input", placeholder="예) baemin@woowahan.com")
+      button.common_button.common_color.w_100
+        ="중복확인"
+
+
+  script(type='module', src='/javascripts/utils/customInput.js')
+  script(type='module', src='/javascripts/pages/signup/others.js')
+  
