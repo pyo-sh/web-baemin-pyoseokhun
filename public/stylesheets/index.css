@@ -19,9 +19,6 @@
 .link > img:first-child {
   height: 100%;
 }
-.link > img:last-child {
-  height: 20px;
-}
 
 .link_user {
   height: 80px;
