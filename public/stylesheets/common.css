@@ -1,3 +1,15 @@
 .arrow_right__image {
   height: 20px;
 }
+
+.hidden {
+  visibility: hidden;
+}
+
+.w_full {
+  width: 100%;
+}
+
+.p_relative {
+  position: relative;
+}
