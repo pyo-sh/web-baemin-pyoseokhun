@@ -1,5 +1,16 @@
 * {
   box-sizing: border-box;
+
+  --black: #000000;
+  --white: #ffffff;
+  --primary: #2ac1bc;
+  --green: #5baf1a;
+  --alert: #f66e84;
+  --dark_gray: #444444;
+  --gray: #777777;
+  --light_gray: #cccccc;
+  --line: #e3e3e3;
+  --background: #efefef;
 }
 
 body {
