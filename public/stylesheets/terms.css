@@ -1,0 +1,26 @@
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.terms_wrapper {
+  padding: 40px 10px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.terms_hello {
+  margin-bottom: 25px;
+  display: block;
+}
+.terms_hello > h2 {
+  margin: 4px 0;
+}
+
+.terms_list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}

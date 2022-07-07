@@ -15,4 +15,11 @@ router.get("/login", function (req, res, next) {
   });
 });
 
+router.get("/terms", function (req, res, next) {
+  res.render("terms", {
+    page: "terms",
+    title: "회원가입",
+  });
+});
+
 module.exports = router;
