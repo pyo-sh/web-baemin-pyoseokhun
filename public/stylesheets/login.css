@@ -28,10 +28,10 @@
   font-size: 16px;
   border: none;
   outline: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--light_gray);
 }
 .login_form__input::placeholder {
-  color: #ccc;
+  color: var(--light_gray);
 }
 .login_form__alarm {
   width: 100%;
@@ -40,15 +40,15 @@
   margin: 4px 0 16px 0;
 
   font-size: 14px;
-  color: red;
+  color: var(--alert);
 }
 .login_form__button {
   width: 100%;
   height: 45px;
   margin: 8px 0;
   font-size: 16px;
-  color: white;
-  background-color: #2ac1bc;
+  color: var(--white);
+  background-color: var(--primary);
   outline: none;
   border: none;
   border-radius: 3px;
@@ -65,10 +65,10 @@
   margin: 8px 0;
   padding: 0 16px;
   line-height: 20px;
-  color: #777777;
+  color: var(--gray);
 }
 .login_help > a:first-child {
-  border-right: 1px solid #777777;
+  border-right: 1px solid var(--gray);
 }
 
 .login_select {
@@ -82,19 +82,19 @@
 .login_select__button {
   width: 100%;
   height: 40px;
-  background-color: white;
-  border: 1px solid #777777;
+  background-color: var(--white);
+  border: 1px solid var(gray);
   border-radius: 3px;
 }
 .login_select__button:active {
-  border: 1px solid #444444;
-  box-shadow: 1px 1px #444444;
+  border: 1px solid var(--dark_gray);
+  box-shadow: 1px 1px var(--dark_gray);
 }
 .login_select_signup {
   margin-top: 12px;
-  color: black;
+  color: var(--black);
 }
 .login_select_signup > a {
   margin: 0 4px;
-  color: #2ac1bc;
+  color: var(--primary);
 }
