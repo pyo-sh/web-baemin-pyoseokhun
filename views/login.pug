@@ -8,8 +8,8 @@ block head
 block body
   .login-wrapper
     form(id="login_form").login_form
-      +customInput("login_id", "text", "아이디 또는 이메일", "아이디를 입력해주세요")
-      +customInput("login_pw", "password", "비밀번호", "비밀번호를 입력해주세요")
+      +customInput("아이디를 입력해주세요")(id="login_id", type="text", placeholder="아이디 또는 이메일")
+      +customInput("비밀번호를 입력해주세요")(id="login_pw", type="password", placeholder="비밀번호")
       button(type="submit").common_button
         ="로그인"
     div.login_help
