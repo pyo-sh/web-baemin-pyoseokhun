@@ -17,18 +17,18 @@ block body
       +termitem("term_2", "전자금융거래 이용약관 동의")
       +termitem("term_3", "개인정보 수집이용 동의")
       +termitem("term_4", "개인정보 제3자 제공 동의")
-      +termitem("term_5", "마케팅 정보 메일, SMS 수신동의(선택)", false)
+      +termitem("term_5", "마케팅 정보 메일, SMS 수신동의(선택)", false, false)
       .terms_list__divider
     ul.terms_age
       li.terms_age__item
-        input(id="term_old", name="age", value="old", type="radio", checked=true).terms_list__input
+        input(id="term_old", name="age", value="old", type="radio", checked=true).terms_age__input
         label(for="term_old").terms_age__box
           span
           section.terms_age__title 
             ="만 14세 이상입니다."
           img(src="/images/over.png").terms_age__image
       li.terms_age__item
-        input(id="term_young", name="age", value="young", type="radio").terms_list__input
+        input(id="term_young", name="age", value="young", type="radio").terms_age__input
         label(for="term_young").terms_age__box
           span
           section.terms_age__title 
@@ -38,13 +38,14 @@ block body
           img(src="/images/under.png").terms_age__image
     section.terms_next
       a(href="/telecheck")
-        button.terms_next__button
+        button(id="term_button", disabled=true).common_button.common_button_inactive
           ="다음으로"
+  script(type='module', src='/javascripts/terms.js')
 
 
-mixin termitem(id="", label="", hasArrow=true)
+mixin termitem(id="", label="", isRequired=true, hasArrow=true)
   li.terms_list__item
-    input(id=id, type="checkbox").terms_list__input
+    input(id=id, type="checkbox", required=isRequired).terms_list__input
     label(for=id).terms_list__box
       span
     label.terms_list__title

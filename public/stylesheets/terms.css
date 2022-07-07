@@ -140,7 +140,15 @@
   margin-right: -2px;
 }
 
-.terms_list__input:checked + .terms_age__box > span {
+.terms_age__input {
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.terms_age__input:checked + .terms_age__box > span {
   background-color: var(--primary);
 }
 
