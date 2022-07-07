@@ -1,18 +1,16 @@
 extends layout
+include mixins/customInput
 
 block head 
   link(rel="stylesheet", href="/stylesheets/login.css")
+  link(rel="stylesheet", href="/stylesheets/customInput.css")
 
 block body
   .login-wrapper
     form(action="submit").login_form
-      input(placeholder="아이디 또는 이메일", type="text").login_form__input
-      label.login_form__alarm
-        ="아이디를 입력해주세요"
-      input(placeholder="비밀번호", type="text").login_form__input
-      label.login_form__alarm
-        ="비밀번호를 입력해주세요"
-      button.login_form__button
+      +customInput("login_id", "text", "아이디 또는 이메일", "아이디를 입력해주세요")
+      +customInput("login_pw", "password", "비밀번호", "비밀번호를 입력해주세요")
+      button.common_button
         ="로그인"
     div.login_help
       a(href="/")
