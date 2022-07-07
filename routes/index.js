@@ -22,4 +22,11 @@ router.get("/terms", function (req, res, next) {
   });
 });
 
+router.get("/telecheck", function (req, res, next) {
+  res.render("telecheck", {
+    page: "telecheck",
+    title: "회원가입",
+  });
+});
+
 module.exports = router;
