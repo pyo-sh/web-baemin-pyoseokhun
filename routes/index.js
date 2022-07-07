@@ -22,9 +22,9 @@ router.get("/signup/terms", function (req, res, next) {
   });
 });
 
-router.get("/signup/telecheck", function (req, res, next) {
-  res.render("signup/telecheck", {
-    page: "telecheck",
+router.get("/signup/phone", function (req, res, next) {
+  res.render("signup/phone", {
+    page: "phone",
     title: "회원가입",
   });
 });

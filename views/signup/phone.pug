@@ -2,10 +2,12 @@ extends ../layout
 include ../mixins/customInput
 
 block head 
-  link(rel="stylesheet", href="/stylesheets/pages/signup/telecheck.css")
+  link(rel="stylesheet", href="/stylesheets/pages/signup/phone.css")
   link(rel="stylesheet", href="/stylesheets/mixins/customInput.css")
 block body
-  .telecheck-wrapper
+  .phone_wrapper
     +customInput("정확한 전화번호를 입력해주세요.", "휴대전화", true, true)(placeholder="전화번호를 입력해주세요.")
-  
+
   script(type='module', src='/javascripts/utils/customInput.js')
+  script(type='module', src='/javascripts/pages/signup/phone.js')
+  
