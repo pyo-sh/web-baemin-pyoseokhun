@@ -1,7 +1,7 @@
-extends layout
+extends ../layout
 
 block head 
-  link(rel="stylesheet", href="/stylesheets/terms.css")
+  link(rel="stylesheet", href="/stylesheets/pages/signup/terms.css")
 
 block body
   .terms_wrapper
@@ -37,10 +37,9 @@ block body
               ="본인확인이 된 보호자의 배민계정이 필요해요."
           img(src="/images/under.png").terms_age__image
     section.terms_next
-      a(href="/telecheck")
-        button(id="term_button", disabled=true).common_button.common_button_inactive
-          ="다음으로"
-  script(type='module', src='/javascripts/terms.js')
+      button(id="term_button", disabled=true).common_button.common_button_inactive
+        ="다음으로"
+  script(type='module', src='/javascripts/pages/signup/terms.js')
 
 
 mixin termitem(id="", label="", isRequired=true, hasArrow=true)

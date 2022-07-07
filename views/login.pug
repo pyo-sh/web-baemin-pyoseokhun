@@ -2,8 +2,8 @@ extends layout
 include mixins/customInput
 
 block head 
-  link(rel="stylesheet", href="/stylesheets/login.css")
-  link(rel="stylesheet", href="/stylesheets/customInput.css")
+  link(rel="stylesheet", href="/stylesheets/pages/login.css")
+  link(rel="stylesheet", href="/stylesheets/mixins/customInput.css")
 
 block body
   .login-wrapper
@@ -26,8 +26,8 @@ block body
         ="Apple로 로그인"
       span.login_select_signup
         ="혹시, 배달의 민족이 처음이신가요?"
-        a(href="/terms")
+        a(href="/signup/terms")
           ="회원가입"
   
-  script(type='module', src='/javascripts/customInput.js')
-  script(type='module', src='/javascripts/login.js')
+  script(type='module', src='/javascripts/utils/customInput.js')
+  script(type='module', src='/javascripts/pages/login.js')

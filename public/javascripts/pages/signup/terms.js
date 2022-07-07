@@ -27,6 +27,7 @@
   $button.addEventListener("click", () => {
     if (!canSubmit) return;
     // TODO : fetch and get Data from server
-    window.location.href = `${window.location.origin}/telecheck`;
+    console.log(window.location);
+    window.location.href = `${window.location.origin}/signup/telecheck`;
   });
 })();
