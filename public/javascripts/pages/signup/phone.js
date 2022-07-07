@@ -1,3 +1,5 @@
+import handleInputEvents from "../../utils/handleInputEvents.js";
+
 (function initPhone() {
   const $phoneInput = document.querySelector("#phone_input");
   const $authInput = document.querySelector("#phone_auth__input");
@@ -6,35 +8,34 @@
   const $againBtn = document.querySelector("#phone_again");
   const $nextBtn = document.querySelector("#header_next");
 
-  // TODO : button 활성화 부분 function 화 시키기
-  // input phone number
-  let canAuth = false;
-  $phoneInput.addEventListener("input", (e) => {
-    const { value, topParent } = e.target;
-
-    const data = (value || "")
+  let canCert = false;
+  let certController = {
+    get() {
+      return canCert;
+    },
+    set ["isValid"](newVal) {
+      canCert = newVal;
+      $phoneInput.topParent.toggleCheck(newVal);
+      $startBtn.classList.toggle("common_button__inactive", !newVal);
+      $startBtn.disabled = !newVal;
+    },
+  };
+  const fitPhone = (value) => {
+    return (value || "")
       .substring(0, 13)
       .replace(/[^0-9]/g, "")
       .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
       .replace(/(\-{1,2})$/g, "");
-    e.target.value = data;
-
-    canAuth = data?.length === 13;
-    topParent.toggleCheck(canAuth);
-    $startBtn.classList.toggle("common_button__inactive", !canAuth);
-    $startBtn.disabled = !canAuth;
-  });
-
-  // control erase data
-  Object.defineProperty($phoneInput, "clear", {
-    set(newValue) {
-      if (newValue) {
-        canAuth = false;
-        $phoneInput.topParent.toggleCheck(canAuth);
-        $startBtn.classList.toggle("common_button__inactive", !canAuth);
-        $startBtn.disabled = !canAuth;
-      }
-    },
+  };
+  const validatePhone = (value) => {
+    const isValid = value?.length === 13;
+    console.log(isValid);
+    return isValid;
+  };
+  handleInputEvents($phoneInput, {
+    submitController: certController,
+    fitValue: fitPhone,
+    validate: validatePhone,
   });
 
   // certificate number
