@@ -37,8 +37,9 @@ block body
               ="본인확인이 된 보호자의 배민계정이 필요해요."
           img(src="/images/under.png").terms_age__image
     section.terms_next
-      button.terms_next__button
-        ="다음으로"
+      a(href="/telecheck")
+        button.terms_next__button
+          ="다음으로"
 
 
 mixin termitem(id="", label="", hasArrow=true)
