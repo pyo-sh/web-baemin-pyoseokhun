@@ -24,3 +24,59 @@
   margin: 0;
   list-style: none;
 }
+.terms_list__divider {
+  width: 100%;
+  margin-top: 25px;
+  border-bottom: 1px solid var(--line);
+}
+.terms_list__item {
+  height: 30px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 18px;
+}
+.terms_list__box {
+  width: 25px;
+  height: 25px;
+  position: relative;
+  cursor: pointer;
+}
+.terms_list__input {
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.terms_list__box > span {
+  width: 25px;
+  height: 25px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: var(--light_gray);
+  border-radius: 3px;
+}
+.terms_list__input:checked + .terms_list__box > span {
+  background-color: var(--primary);
+}
+.terms_list__box > span::after {
+  content: "";
+  position: absolute;
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.terms_list__item:first-child {
+  font-weight: bold;
+}
+.terms_list__title {
+  padding: 0 6px;
+  flex: 1;
+}
