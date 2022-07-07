@@ -21,7 +21,7 @@
     $controller.checked = isAllChecked;
     canSubmit = isRequiredChecked;
     $button.disabled = !canSubmit;
-    $button.classList.toggle("common_button_inactive", !canSubmit);
+    $button.classList.toggle("common_button__inactive", !canSubmit);
   });
 
   $button.addEventListener("click", () => {
