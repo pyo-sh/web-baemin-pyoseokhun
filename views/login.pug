@@ -1,0 +1,27 @@
+extends layout
+
+block head 
+  link(rel="stylesheet", href="/stylesheets/login.css")
+
+block body
+  form(action="submit")
+    input(type="text")
+    input(type="text")
+    button
+      ="로그인"
+  div
+    a(href="/")
+      ="아이디 찾기"
+    a(href="/")
+      ="비밀번호 찾기"
+  div 
+    button 
+      ="페이스북으로 로그인"
+    button 
+      ="네이버로 로그인"
+    button 
+      ="Apple로 로그인"
+    span 
+      ="혹시, 배달의 민족이 처음이신가요?"
+      a(href="/")
+        ="회원가입"
