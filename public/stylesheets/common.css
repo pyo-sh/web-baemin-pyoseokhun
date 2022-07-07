@@ -25,6 +25,14 @@
   border: 1px solid var(--light_gray);
 }
 
+.common_button_inactive {
+  background-color: var(--light_gray);
+  cursor: none;
+}
+.common_button_inactive:active {
+  box-shadow: none;
+}
+
 .hidden {
   visibility: hidden;
 }
