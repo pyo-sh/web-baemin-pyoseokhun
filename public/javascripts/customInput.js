@@ -9,6 +9,9 @@ function defineUtils($element) {
   const $input = $element.querySelector(".custom_input__main");
   const $eraseBtn = $element.querySelector(".custom_input__button");
 
+  /* remember top element of custom input */
+  $input.topParent = $element;
+
   /* able to toggle error */
   $element.toggleError = handleToggleError($errorMessage);
 

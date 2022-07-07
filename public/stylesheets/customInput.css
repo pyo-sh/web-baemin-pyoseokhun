@@ -2,6 +2,9 @@
   width: 100%;
   padding: 0 4px;
 }
+.custom_input__wrapper > label {
+  color: var(--dark_gray);
+}
 
 .custom_input {
   width: 100%;
@@ -35,6 +38,25 @@
   border-radius: 50%;
   background-color: var(--gray);
   cursor: pointer;
+}
+.custom_input__button:before,
+.custom_input__button:after {
+  width: 2px;
+  height: 10px;
+  margin-top: -5px;
+  margin-left: -1px;
+
+  position: absolute;
+  content: " ";
+
+  background-color: var(--white);
+  border-radius: 3px;
+}
+.custom_input__button:before {
+  transform: rotate(45deg);
+}
+.custom_input__button:after {
+  transform: rotate(-45deg);
 }
 
 .custom_input__check {
