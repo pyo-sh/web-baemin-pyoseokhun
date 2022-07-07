@@ -1,0 +1,19 @@
+extends ../layout
+include ../mixins/customInput
+
+block head 
+  link(rel="stylesheet", href="/stylesheets/pages/signup/phone.css")
+  link(rel="stylesheet", href="/stylesheets/mixins/customInput.css")
+block body
+  .phone_wrapper
+    +customInput("정확한 전화번호를 입력해주세요.", "휴대전화", true, true)(id="phone_input", placeholder="전화번호를 입력해주세요.")
+    button(id="phone_start", disabled).common_button.common_color.common_button__inactive
+      ="인증번호 받기"
+    section(id="phone_certificate__section").hidden
+      +customInput("정확한 인증번호를 입력해주세요.", "인증번호", false, true)(id="phone_auth__input", type="number", placeholder="인증번호를 입력해주세요.")
+      button(id="phone_again")
+        ="인증번호 다시받기"
+
+  script(type='module', src='/javascripts/utils/customInput.js')
+  script(type='module', src='/javascripts/pages/signup/phone.js')
+  

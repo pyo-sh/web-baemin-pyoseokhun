@@ -21,12 +21,13 @@
     $controller.checked = isAllChecked;
     canSubmit = isRequiredChecked;
     $button.disabled = !canSubmit;
-    $button.classList.toggle("common_button_inactive", !canSubmit);
+    $button.classList.toggle("common_button__inactive", !canSubmit);
   });
 
   $button.addEventListener("click", () => {
     if (!canSubmit) return;
+
     // TODO : fetch and get Data from server
-    window.location.href = `${window.location.origin}/telecheck`;
+    window.location.href = `${window.location.origin}/signup/phone`;
   });
 })();

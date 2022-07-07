@@ -15,16 +15,16 @@ router.get("/login", function (req, res, next) {
   });
 });
 
-router.get("/terms", function (req, res, next) {
-  res.render("terms", {
+router.get("/signup/terms", function (req, res, next) {
+  res.render("signup/terms", {
     page: "terms",
     title: "회원가입",
   });
 });
 
-router.get("/telecheck", function (req, res, next) {
-  res.render("telecheck", {
-    page: "telecheck",
+router.get("/signup/phone", function (req, res, next) {
+  res.render("signup/phone", {
+    page: "phone",
     title: "회원가입",
   });
 });

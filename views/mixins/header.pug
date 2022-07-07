@@ -1,7 +1,26 @@
 mixin header(page = "index", title = "")
     header.header_wrapper
-        a(href="javascript:window.history.back()")
-            .header_back
+        .header_additional
+            case page
+                when "login"
+                    a(href="/")
+                        .header_back__x
+                when "terms"
+                    a(href="javascript:window.history.back()")
+                        .header_back__x
+                when "phone"
+                    a(href="/signup/terms")
+                        img(src="/images/arrow-left.svg").header_back__arrow
+                when "phone"
+                    a(href="/signup/others")
+                        img(src="/images/arrow-left.svg").header_back__arrow
         .header_title
             =title
-        .header_next
+        .header_additional
+            case page 
+                when "phone"
+                    button(id="header_next").header_next__button
+                        ="다음"
+                when "others"
+                    button(id="header_next").header_next__button
+                        ="완료"

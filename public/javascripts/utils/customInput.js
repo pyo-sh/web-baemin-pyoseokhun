@@ -38,6 +38,12 @@ function handleEraseValue($input, $eraseBtn) {
   $input.addEventListener("input", () => {
     $eraseBtn.classList.toggle("hidden", !$input.value);
   });
+  $input.addEventListener("focus", () => {
+    $eraseBtn.classList.toggle("hidden", !$input.value);
+  });
+  $input.addEventListener("blur", () => {
+    $eraseBtn.classList.toggle("hidden", true);
+  });
 
   const eraseValue = () => {
     /* to watch clear */
@@ -46,6 +52,9 @@ function handleEraseValue($input, $eraseBtn) {
     $input.topParent.toggleCheck(false);
     $eraseBtn.classList.toggle("hidden", true);
   };
+
+  $eraseBtn.addEventListener("mousedown", (e) => e.preventDefault());
   $eraseBtn.addEventListener("click", eraseValue);
+
   return eraseValue;
 }

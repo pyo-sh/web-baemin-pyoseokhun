@@ -1,9 +1,9 @@
-mixin customInput(id="", type="", placeholder="", errorMessage="Invalid Message", title="", hasErase=false, hasCheck=false)
+mixin customInput(errorMessage="Invalid Message", title="", hasErase=false, hasCheck=false)
   section.custom_input__wrapper
     label
       =title
     section.custom_input
-      input(id=id, type=type, placeholder=placeholder).custom_input__main
+      input.custom_input__main&attributes(attributes)
       -if (hasErase)
         button.custom_input__button.hidden
       -if (hasCheck)

@@ -25,16 +25,20 @@
   border: 1px solid var(--light_gray);
 }
 
-.common_button_inactive {
+.common_button__inactive {
   background-color: var(--light_gray);
-  cursor: none;
+  cursor: default;
 }
-.common_button_inactive:active {
+.common_button__inactive:active {
   box-shadow: none;
 }
 
 .hidden {
   visibility: hidden;
+}
+
+.disappear {
+  display: none;
 }
 
 .w_full {
