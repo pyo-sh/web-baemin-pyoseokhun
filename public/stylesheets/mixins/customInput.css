@@ -27,6 +27,14 @@
 .custom_input__main::placeholder {
   color: var(--light_gray);
 }
+.custom_input__main::-webkit-outer-spin-button,
+.custom_input__main::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+.custom_input__main[type="number"] {
+  -moz-appearance: textfield;
+}
 
 .custom_input__button {
   width: 20px;

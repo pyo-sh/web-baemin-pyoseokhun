@@ -4,6 +4,7 @@
   const $authSection = document.querySelector("#phone_certificate__section");
   const $startBtn = document.querySelector("#phone_start");
   const $againBtn = document.querySelector("#phone_again");
+  const $nextBtn = document.querySelector("#header_next");
 
   // TODO : button 활성화 부분 function 화 시키기
   // input phone number
@@ -36,32 +37,47 @@
     },
   });
 
-  // send certificate number
+  // certificate number
+  let canSubmit = false;
   let certNum = null;
+  const certificateNumber = () => {
+    canSubmit = $authInput.value === certNum;
+    $authInput.topParent.toggleCheck(canSubmit);
+    $nextBtn.disabled = !canSubmit;
+    $nextBtn.classList.toggle("header_next__active", canSubmit);
+  };
+
+  // send certification number
   let certSchedule = null;
   const sendCert = () => {
     clearTimeout(certSchedule);
     certNum = null;
+    certificateNumber();
     certSchedule = setTimeout(() => {
-      certNum = generateCertification();
-      $authInput.value = certNum;
-      $authInput.topParent.toggleCheck(true);
+      $authInput.value = certNum = generateCertification();
+      certificateNumber();
     }, 2000);
   };
-  $againBtn.addEventListener("click", () => {
-    sendCert();
-    $authInput.value = "";
-    $authInput.topParent.toggleCheck(false);
-  });
 
-  // click button & send auth
+  // certificate buttons
   $startBtn.addEventListener("click", () => {
     $startBtn.classList.add("disappear");
     $authSection.classList.remove("hidden");
     sendCert();
   });
+  $againBtn.addEventListener("click", sendCert);
+  $authInput.addEventListener("input", certificateNumber);
+
+  // send next
+  $nextBtn.addEventListener("click", () => {
+    if (!canSubmit) return;
+
+    // TODO : fetch and get Data from server
+    window.location.href = `${window.location.origin}/signup/others`;
+  });
 })();
 
 function generateCertification() {
-  return Math.floor(Math.random() * 9999);
+  const randomNums = Array.from(new Array(4), () => Math.floor(Math.random() * 9));
+  return randomNums.join("");
 }

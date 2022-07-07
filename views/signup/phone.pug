@@ -10,7 +10,7 @@ block body
     button(id="phone_start", disabled).common_button.common_color.common_button__inactive
       ="인증번호 받기"
     section(id="phone_certificate__section").hidden
-      +customInput("정확한 인증번호를 입력해주세요.", "인증번호", true, true)(id="phone_auth__input", placeholder="인증번호를 입력해주세요.")
+      +customInput("정확한 인증번호를 입력해주세요.", "인증번호", false, true)(id="phone_auth__input", type="number", placeholder="인증번호를 입력해주세요.")
       button(id="phone_again")
         ="인증번호 다시받기"
 
