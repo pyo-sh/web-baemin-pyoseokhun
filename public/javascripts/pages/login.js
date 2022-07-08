@@ -12,20 +12,13 @@ import { loginAPI } from "../apis/login.js";
   $form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const pairs = {
-      email: $inputID,
-      password: $inputPW,
-    };
-
-    let canSubmit = true;
-    const info = Object.entries(pairs).reduce((result, [key, $input]) => {
-      const { value } = $input;
-      canSubmit &&= !!value;
-      return { ...result, [key]: value };
-    }, {});
-
+    const canSubmit = [$inputID, $inputPW].every((e) => !!e);
     if (!canSubmit) return false;
 
+    const info = {
+      email: $inputID.value,
+      password: $inputPW.value,
+    };
     loginAPI(info);
   });
   $inputID.addEventListener("input", () => {});
