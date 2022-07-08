@@ -7,8 +7,8 @@
     e.preventDefault();
 
     const pairs = {
-      id: $inputID,
-      pw: $inputPW,
+      email: $inputID,
+      password: $inputPW,
     };
 
     let canSubmit = true;
@@ -21,7 +21,20 @@
 
     if (!canSubmit) return false;
 
-    // TODO: Submit login form
+    fetch("/user/login", {
+      method: "POST",
+      mode: "cors",
+      credentials: "same-origin",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      redirect: "follow",
+      body: JSON.stringify(info),
+    })
+      .then((res) => {
+        if (res.status === 200) window.location.href = res.url;
+      })
+      .catch((e) => alert("Login Failed!"));
   });
   $inputID.addEventListener("input", () => {});
 })();
