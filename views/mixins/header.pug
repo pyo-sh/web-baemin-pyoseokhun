@@ -6,13 +6,13 @@ mixin header(page = "index", title = "")
                     a(href="/")
                         .header_back__x
                 when "terms"
-                    a(href="javascript:window.history.back()")
+                    a(href="/")
                         .header_back__x
                 when "phone"
                     a(href="/signup/terms")
                         img(src="/images/arrow-left.svg").header_back__arrow
-                when "phone"
-                    a(href="/signup/others")
+                when "others"
+                    a(href="/signup/phone")
                         img(src="/images/arrow-left.svg").header_back__arrow
         .header_title
             =title

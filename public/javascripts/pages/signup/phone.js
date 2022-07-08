@@ -15,7 +15,6 @@ import handleInputEvents from "../../utils/handleInputEvents.js";
     },
     set ["isValid"](newVal) {
       canCert = newVal;
-      $phoneInput.topParent.toggleCheck(newVal);
       $startBtn.classList.toggle("common_button__inactive", !newVal);
       $startBtn.disabled = !newVal;
     },
@@ -29,7 +28,6 @@ import handleInputEvents from "../../utils/handleInputEvents.js";
   };
   const validatePhone = (value) => {
     const isValid = value?.length === 13;
-    console.log(isValid);
     return isValid;
   };
   handleInputEvents($phoneInput, {

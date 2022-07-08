@@ -10,7 +10,7 @@ export default function handleInputEvents($element, options) {
     const isValid = validate($element.value);
     if (onlyValidError && isValid) $element.topParent.toggleError(true);
     if (showError) $element.topParent.toggleError(isValid);
-    $element.topParent.toggleCheck(!isValid);
+    $element.topParent.toggleCheck(isValid);
     submitController.isValid = isValid;
   }
 
