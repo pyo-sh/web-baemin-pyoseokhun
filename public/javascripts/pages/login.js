@@ -1,9 +1,13 @@
+import handleInputEvents from "../utils/handleInputEvents.js";
 import { loginAPI } from "../apis/login.js";
 
 (function initLogin() {
   const $form = document.querySelector("#login_form");
   const $inputID = document.querySelector("#login_id");
   const $inputPW = document.querySelector("#login_pw");
+
+  handleInputEvents($inputID);
+  handleInputEvents($inputPW);
 
   $form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -14,10 +18,9 @@ import { loginAPI } from "../apis/login.js";
     };
 
     let canSubmit = true;
-    const info = Object.entries(pairs).reduce((result, [key, { topParent, value }]) => {
-      const isValid = !!value;
-      canSubmit &= isValid;
-      topParent.toggleError(isValid);
+    const info = Object.entries(pairs).reduce((result, [key, $input]) => {
+      const { value } = $input;
+      canSubmit &&= !!value;
       return { ...result, [key]: value };
     }, {});
 
