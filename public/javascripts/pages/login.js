@@ -6,13 +6,13 @@ import { loginAPI } from "../apis/login.js";
   const $inputID = document.querySelector("#login_id");
   const $inputPW = document.querySelector("#login_pw");
 
-  handleInputEvents($inputID);
-  handleInputEvents($inputPW);
+  const $inputs = [$inputID, $inputPW];
+  $inputs.forEach(handleInputEvents);
 
   $form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const canSubmit = [$inputID, $inputPW].every((e) => !!e);
+    const canSubmit = $inputs.every((e) => !!e);
     if (!canSubmit) return false;
 
     const info = {
