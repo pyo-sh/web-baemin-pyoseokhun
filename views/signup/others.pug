@@ -15,6 +15,8 @@ block body
       +customInput("10자 이상 대문자, 숫자, 특수문자 중 2종류를 조합해야 합니다", "비밀번호", true, true)(id="others_password", type="password", placeholder="10자 이상 대문자, 숫자, 특수문자 중 2종류 조합")
       +customInput("알맞은 생년월일을 입력해주세요.", "생년월일", true, true)(id="others_birthday", placeholder="예) 2000.01.01")
 
+  script(type='module', src='/javascripts/utils/formations.js')
+  script(type='module', src='/javascripts/utils/validations.js')
   script(type='module', src='/javascripts/utils/handleInputEvents.js')
   script(type='module', src='/javascripts/utils/customInput.js')
   script(type='module', src='/javascripts/pages/signup/others.js')

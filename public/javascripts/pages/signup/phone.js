@@ -1,4 +1,5 @@
 import handleInputEvents from "../../utils/handleInputEvents.js";
+import { formatPhone } from "../../utils/formations.js";
 
 (function initPhone() {
   const $phoneInput = document.querySelector("#phone_input");
@@ -14,20 +15,13 @@ import handleInputEvents from "../../utils/handleInputEvents.js";
     $startBtn.classList.toggle("common_button__inactive", !isValid);
     $startBtn.disabled = !isValid;
   };
-  const formatValue = (value) => {
-    return (value || "")
-      .substring(0, 13)
-      .replace(/[^0-9]/g, "")
-      .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
-      .replace(/(\-{1,2})$/g, "");
-  };
   const validatePhone = (value) => {
     const isValid = value?.length === 13;
     return isValid;
   };
   handleInputEvents($phoneInput, {
     setValid: setAbleCert,
-    formatValue: formatValue,
+    formatValue: formatPhone,
     validate: validatePhone,
   });
 
