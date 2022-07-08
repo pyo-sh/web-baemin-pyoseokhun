@@ -19,9 +19,11 @@ app.use(express.static(path.join(__dirname, "public")));
 
 /* Routers */
 const indexRouter = require("./routes/index");
+const userRouter = require("./routes/user");
 
 /* Connect Routers */
 app.use("/", indexRouter);
+app.use("/user", userRouter);
 
 /* 404 Error Middleware */
 app.use(function (req, res, next) {
