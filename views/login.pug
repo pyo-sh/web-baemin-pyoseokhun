@@ -1,0 +1,33 @@
+extends layout
+include mixins/customInput
+
+block head 
+  link(rel="stylesheet", href="/stylesheets/pages/login.css")
+  link(rel="stylesheet", href="/stylesheets/mixins/customInput.css")
+
+block body
+  .login-wrapper
+    form(id="login_form").login_form
+      +customInput("아이디를 입력해주세요")(id="login_id", type="text", placeholder="아이디 또는 이메일")
+      +customInput("비밀번호를 입력해주세요")(id="login_pw", type="password", placeholder="비밀번호")
+      button(type="submit").common_button
+        ="로그인"
+    div.login_help
+      a(href="/")
+        ="아이디 찾기"
+      a(href="/")
+        ="비밀번호 찾기"
+    div.login_select
+      button.login_select__button
+        ="페이스북으로 로그인"
+      button.login_select__button
+        ="네이버로 로그인"
+      button.login_select__button
+        ="Apple로 로그인"
+      span.login_select_signup
+        ="혹시, 배달의 민족이 처음이신가요?"
+        a(href="/signup/terms")
+          ="회원가입"
+  
+  script(type='module', src='/javascripts/utils/customInput.js')
+  script(type='module', src='/javascripts/pages/login.js')

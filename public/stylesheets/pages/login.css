@@ -1,0 +1,69 @@
+.main {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-wrapper {
+  padding: 40px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login_form {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.login_help {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.login_help > a {
+  height: 18px;
+  margin: 8px 0;
+  padding: 0 16px;
+  line-height: 20px;
+  color: var(--gray);
+}
+.login_help > a:first-child {
+  border-right: 1px solid var(--gray);
+}
+
+.login_select {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 8px;
+}
+.login_select__button {
+  width: 100%;
+  height: 40px;
+  background-color: var(--white);
+  border: 1px solid var(gray);
+  border-radius: 3px;
+}
+.login_select__button:active {
+  border: 1px solid var(--dark_gray);
+  box-shadow: 1px 1px var(--dark_gray);
+}
+.login_select_signup {
+  margin-top: 12px;
+  color: var(--black);
+}
+.login_select_signup > a {
+  margin: 0 4px;
+  color: var(--primary);
+}

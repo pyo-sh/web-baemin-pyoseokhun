@@ -1,0 +1,12 @@
+mixin customInput(errorMessage="Invalid Message", title="", hasErase=false, hasCheck=false)
+  section.custom_input__wrapper
+    label
+      =title
+    section.custom_input
+      input.custom_input__main&attributes(attributes)
+      -if (hasErase)
+        button.custom_input__button.hidden
+      -if (hasCheck)
+        span.custom_input__check
+    span.custom_input__error.hidden
+      =errorMessage

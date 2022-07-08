@@ -1,7 +1,7 @@
 extends layout
 
 block head 
-  link(rel="stylesheet", href="/stylesheets/index.css")
+  link(rel="stylesheet", href="/stylesheets/pages/index.css")
 
 block body
   img(src="/images/banner.png").banner
@@ -10,7 +10,7 @@ block body
       img(src="/images/profile.png")
       span.link_user__name 
         ="로그인해주세요"
-      img(src="/images/right-arrow.png")
+      img(src="/images/right-arrow.png").arrow_right__image
   ul.link_grid
     +griditem("point.png", "포인트")
     +griditem("coupon.png", "쿠폰함")
@@ -23,7 +23,7 @@ block body
       img(src="/images/sprout.png")
       span.link_adv__title
         ="일회용을 덜 쓰기, 함께해요!"
-      img(src="/images/right-arrow.png")
+      img(src="/images/right-arrow.png").arrow_right__image
   ul.link_menu
     +menuitem("배민페이 등록", "배민페이로 결제하면 최대 5.5% 배민포인트가 적립됩니다!", true)
     +menuitem("가족계정 관리", "배민페이로 결제하면 최대 5.5% 배민포인트가 적립됩니다!", true)
@@ -47,4 +47,4 @@ mixin menuitem(title, subtitle = "", isNew = false)
             img(src=`/images/new.png`)
         span.menu_item__subtitle
           =subtitle
-      img(src="/images/right-arrow.png")
+      img(src="/images/right-arrow.png").arrow_right__image

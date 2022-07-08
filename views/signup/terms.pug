@@ -1,0 +1,53 @@
+extends ../layout
+
+block head 
+  link(rel="stylesheet", href="/stylesheets/pages/signup/terms.css")
+
+block body
+  .terms_wrapper
+    section.terms_hello
+      h2 
+        ="어서오세요"
+      h2 
+        ="약관동의가 필요해요"
+    ul.terms_list
+      +termitem("term_all", "전체동의")
+      .terms_list__divider(style="margin-bottom: 25px;")
+      +termitem("term_1", "배달의민족 이용약관 동의")
+      +termitem("term_2", "전자금융거래 이용약관 동의")
+      +termitem("term_3", "개인정보 수집이용 동의")
+      +termitem("term_4", "개인정보 제3자 제공 동의")
+      +termitem("term_5", "마케팅 정보 메일, SMS 수신동의(선택)", false, false)
+      .terms_list__divider
+    ul.terms_age
+      li.terms_age__item
+        input(id="term_old", name="age", value="old", type="radio", checked=true).terms_age__input
+        label(for="term_old").terms_age__box
+          span
+          section.terms_age__title 
+            ="만 14세 이상입니다."
+          img(src="/images/over.png").terms_age__image
+      li.terms_age__item
+        input(id="term_young", name="age", value="young", type="radio").terms_age__input
+        label(for="term_young").terms_age__box
+          span
+          section.terms_age__title 
+            ="만 14세 미만입니다."
+            .terms_age__subtitle
+              ="본인확인이 된 보호자의 배민계정이 필요해요."
+          img(src="/images/under.png").terms_age__image
+    section.terms_next
+      button(id="term_button", disabled=true).common_button.common_button__inactive
+        ="다음으로"
+  script(type='module', src='/javascripts/pages/signup/terms.js')
+
+
+mixin termitem(id="", label="", isRequired=true, hasArrow=true)
+  li.terms_list__item
+    input(id=id, type="checkbox", required=isRequired).terms_list__input
+    label(for=id).terms_list__box
+      span
+    label.terms_list__title
+      =label
+    -if(hasArrow)
+      img(src="/images/right-arrow.png").arrow_right__image
