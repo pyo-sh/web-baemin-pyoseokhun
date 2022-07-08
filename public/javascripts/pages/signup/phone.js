@@ -8,18 +8,13 @@ import handleInputEvents from "../../utils/handleInputEvents.js";
   const $againBtn = document.querySelector("#phone_again");
   const $nextBtn = document.querySelector("#header_next");
 
-  let canCert = false;
-  let certController = {
-    get() {
-      return canCert;
-    },
-    set ["isValid"](newVal) {
-      canCert = newVal;
-      $startBtn.classList.toggle("common_button__inactive", !newVal);
-      $startBtn.disabled = !newVal;
-    },
+  let ableCert = false;
+  const setAbleCert = (isValid) => {
+    ableCert = isValid;
+    $startBtn.classList.toggle("common_button__inactive", !isValid);
+    $startBtn.disabled = !isValid;
   };
-  const fitPhone = (value) => {
+  const formatValue = (value) => {
     return (value || "")
       .substring(0, 13)
       .replace(/[^0-9]/g, "")
@@ -31,8 +26,8 @@ import handleInputEvents from "../../utils/handleInputEvents.js";
     return isValid;
   };
   handleInputEvents($phoneInput, {
-    submitController: certController,
-    fitValue: fitPhone,
+    setValid: setAbleCert,
+    formatValue: formatValue,
     validate: validatePhone,
   });
 

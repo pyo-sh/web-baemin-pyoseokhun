@@ -10,15 +10,10 @@ import handleInputEvents from "../../utils/handleInputEvents.js";
 
   /* emailInput events */
   let isValidEmail = false;
-  let emailController = {
-    get() {
-      return isValidEmail;
-    },
-    set ["isValid"](newVal) {
-      isValidEmail = newVal;
-      $emailBtn.classList.toggle("common_button__inactive", !newVal);
-      $emailBtn.disabled = !newVal;
-    },
+  const setIsValidEmail = (isValid) => {
+    isValidEmail = isValid;
+    $emailBtn.classList.toggle("common_button__inactive", !isValid);
+    $emailBtn.disabled = !isValid;
   };
   const validateEmail = (value) => {
     const regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -26,7 +21,7 @@ import handleInputEvents from "../../utils/handleInputEvents.js";
     return isValid;
   };
   handleInputEvents($emailInput, {
-    submitController: emailController,
+    setValid: setIsValidEmail,
     validate: validateEmail,
   });
 
@@ -39,11 +34,17 @@ import handleInputEvents from "../../utils/handleInputEvents.js";
   });
 
   /* nickname events */
-  let nicknameController = {};
-  handleInputEvents($nicknameInput, { submitController: nicknameController });
+  let isValidNickname = false;
+  const setIsValidNickname = (isValid) => {
+    isValidNickname = isValid;
+  };
+  handleInputEvents($nicknameInput, { setValid: setIsValidNickname });
 
   /* password events */
-  let passwordController = {};
+  let isValidPassword = false;
+  const setIsValidPassword = (isValid) => {
+    isValidPassword = isValid;
+  };
   const validatePassword = (value) => {
     let included = 0;
     [/[a-z]+/, /[A-Z]+/, /[\d]+/, /[`~!@#$%^&*\(\)-_=+]+/].forEach((reg) => {
@@ -56,13 +57,16 @@ import handleInputEvents from "../../utils/handleInputEvents.js";
     return isValid;
   };
   handleInputEvents($passwordInput, {
-    submitController: passwordController,
+    setValid: setIsValidPassword,
     validate: validatePassword,
   });
 
   /* birthday events */
-  let birthdayController = {};
-  const fitBirthday = (value) => {
+  let isValidBirthday = false;
+  const setIsValidBirthday = (isValid) => {
+    isValidBirthday = isValid;
+  };
+  const formatBirthday = (value) => {
     return (value || "")
       .substring(0, 10)
       .replace(/[^0-9]/g, "")
@@ -73,8 +77,8 @@ import handleInputEvents from "../../utils/handleInputEvents.js";
     return value.length === 10;
   };
   handleInputEvents($birthdayInput, {
-    submitController: birthdayController,
-    fitValue: fitBirthday,
+    setValid: setIsValidBirthday,
+    formatValue: formatBirthday,
     validate: validateBirthday,
   });
 })();
