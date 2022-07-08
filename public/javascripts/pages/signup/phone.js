@@ -1,4 +1,5 @@
 import handleInputEvents from "../../utils/handleInputEvents.js";
+import { formatPhone } from "../../utils/formations.js";
 
 (function initPhone() {
   const $phoneInput = document.querySelector("#phone_input");
@@ -8,31 +9,19 @@ import handleInputEvents from "../../utils/handleInputEvents.js";
   const $againBtn = document.querySelector("#phone_again");
   const $nextBtn = document.querySelector("#header_next");
 
-  let canCert = false;
-  let certController = {
-    get() {
-      return canCert;
-    },
-    set ["isValid"](newVal) {
-      canCert = newVal;
-      $startBtn.classList.toggle("common_button__inactive", !newVal);
-      $startBtn.disabled = !newVal;
-    },
-  };
-  const fitPhone = (value) => {
-    return (value || "")
-      .substring(0, 13)
-      .replace(/[^0-9]/g, "")
-      .replace(/^(\d{0,3})(\d{0,4})(\d{0,4})$/g, "$1-$2-$3")
-      .replace(/(\-{1,2})$/g, "");
+  let ableCert = false;
+  const setAbleCert = (isValid) => {
+    ableCert = isValid;
+    $startBtn.classList.toggle("common_button__inactive", !isValid);
+    $startBtn.disabled = !isValid;
   };
   const validatePhone = (value) => {
     const isValid = value?.length === 13;
     return isValid;
   };
   handleInputEvents($phoneInput, {
-    submitController: certController,
-    fitValue: fitPhone,
+    setValid: setAbleCert,
+    formatValue: formatPhone,
     validate: validatePhone,
   });
 

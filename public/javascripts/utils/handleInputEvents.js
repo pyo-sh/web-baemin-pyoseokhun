@@ -1,7 +1,7 @@
 export default function handleInputEvents($element, options) {
-  const { submitController, fitValue, validate } = {
-    submitController: {},
-    fitValue: (value) => value,
+  const { setValid, formatValue, validate } = {
+    setValid: () => {},
+    formatValue: (value) => value,
     validate: (value) => !!value,
     ...options,
   };
@@ -11,7 +11,7 @@ export default function handleInputEvents($element, options) {
     if (onlyValidError && isValid) $element.topParent.toggleError(true);
     if (showError) $element.topParent.toggleError(isValid);
     $element.topParent.toggleCheck(isValid);
-    submitController.isValid = isValid;
+    setValid(isValid);
   }
 
   // watch X button click
@@ -21,9 +21,9 @@ export default function handleInputEvents($element, options) {
     },
   });
 
-  // input validation check & fitValue
+  // input validation check & formatValue
   $element.addEventListener("input", () => {
-    $element.value = fitValue($element.value);
+    $element.value = formatValue($element.value);
     handleValidation({ onlyValidError: true });
   });
 
