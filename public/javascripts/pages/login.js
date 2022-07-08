@@ -1,3 +1,5 @@
+import { loginAPI } from "../apis/login.js";
+
 (function initLogin() {
   const $form = document.querySelector("#login_form");
   const $inputID = document.querySelector("#login_id");
@@ -21,20 +23,7 @@
 
     if (!canSubmit) return false;
 
-    fetch("/user/login", {
-      method: "POST",
-      mode: "cors",
-      credentials: "same-origin",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      redirect: "follow",
-      body: JSON.stringify(info),
-    })
-      .then((res) => {
-        if (res.status === 200) window.location.href = res.url;
-      })
-      .catch((e) => alert("Login Failed!"));
+    loginAPI(info);
   });
   $inputID.addEventListener("input", () => {});
 })();
